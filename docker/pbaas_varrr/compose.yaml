@@ -1,0 +1,33 @@
+version: "3.9"
+include:
+  - infra.yaml
+services:
+  varrr-exp-rpc:
+    image: pangzlab/verus-rpc-server
+    container_name: varrr-exp-rpc
+    env_file:
+      - .env.rpc_server
+    restart: unless-stopped
+    network_mode: host
+
+  varrr-exp-api:
+    image: pangzlab/verus-explorer-api
+    container_name: varrr-exp-api
+    env_file:
+      - .env.api
+    volumes:
+      - log_volume:/app/logs
+    restart: unless-stopped
+    network_mode: host
+
+  varrr-exp-ui:
+    image: pangzlab/verus-explorer-ui:v1.0.0-pbaas.varrr
+    container_name: varrr-exp-ui-pbaas.varrr
+    env_file:
+      - .env.ui
+    ports:
+      - "3331:80"
+    restart: unless-stopped
+    
+volumes:
+  log_volume:
