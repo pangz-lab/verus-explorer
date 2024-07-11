@@ -88,6 +88,6 @@ sudo docker compose up -d
 3. **verus-rpc-server** - https://github.com/pangz-lab/rust_verusd_rpc_server
 
 ## [![Docker](https://skillicons.dev/icons?i=docker)](https://docs.docker.com/get-docker/) Docker Hub
-1. **verus-explorer-ui** - https://hub.docker.com/repository/docker/pangzlab/verus-explorer-ui/general
-2. **verus-explorer-api** - https://hub.docker.com/repository/docker/pangzlab/verus-explorer-api/general
-3. **verus-rpc-server** - https://hub.docker.com/repository/docker/pangzlab/verus-rpc-server/general
+1. **verus-explorer-ui** - https://hub.docker.com/r/pangzlab/verus-explorer-ui
+2. **verus-explorer-api** - https://hub.docker.com/r/pangzlab/verus-explorer-api
+3. **verus-rpc-server** - https://hub.docker.com/r/pangzlab/verus-rpc-server
