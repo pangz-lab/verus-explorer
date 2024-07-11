@@ -1,0 +1,33 @@
+version: "3.9"
+include:
+  - infra.yaml
+services:
+  verus-exp-rpc:
+    image: pangzlab/verus-rpc-server
+    container_name: verus-exp-rpc
+    env_file:
+      - .env.rpc_server
+    restart: unless-stopped
+    network_mode: host
+
+  verus-exp-api:
+    image: pangzlab/verus-explorer-api
+    container_name: verus-exp-api
+    env_file:
+      - .env.api
+    volumes:
+      - log_volume:/app/logs
+    restart: unless-stopped
+    network_mode: host
+
+  verus-exp-ui:
+    image: pangzlab/verus-explorer-ui:v1.0.0
+    container_name: verus-exp-ui
+    env_file:
+      - .env.ui
+    ports:
+      - "2221:80"
+    restart: unless-stopped
+    
+volumes:
+  log_volume:
